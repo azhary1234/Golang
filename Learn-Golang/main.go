@@ -3,18 +3,50 @@ package main
 import "fmt"
 
 func main() {
-	x := []int{1, 2, 3, 4, 5}
+	fmt.Println("Hello World")
 
-	fmt.Println(sum(x...))
+	fmt.Println(sum(2, 4))
+
+	fmt.Println(calculation(penjumlahan, 2, 3, 5))
+
+	fmt.Println(calculation(pengurangan, 2, 3, 5))
+
 }
 
-func sum(x ...int) int {
+type calc func(x ...int) int
+
+func penjumlahan(x ...int) int {
 	total := 0
 
 	for _, v := range x {
-		fmt.Print("Amount :", v, "+", total, " =")
 		total += v
-		fmt.Println(total)
+	}
+
+	return total
+}
+
+func pengurangan(x ...int) int {
+	total := 0
+
+	for _, v := range x {
+		total -= v
+	}
+
+	return total
+}
+
+func calculation(f calc, x ...int) float64 {
+
+	return float64(f(x...))
+
+}
+
+func sum(x ...int) int {
+
+	total := 0
+
+	for _, v := range x {
+		total += v
 	}
 
 	return total
