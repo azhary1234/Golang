@@ -22,13 +22,14 @@ func main() {
 }
 
 func foo(n int) int {
-	return n
-func foo() {
 	fmt.Println(x)
+	return n
 }
 
 func bar(n int, s string) (int, string) {
 	return n, s
+}
+
 func incremetor() func() int {
 	return func() int {
 		return 1
