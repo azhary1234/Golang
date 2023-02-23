@@ -3,51 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello World")
 
-	fmt.Println(sum(2, 4))
-
-	fmt.Println(calculation(penjumlahan, 2, 3, 5))
-
-	fmt.Println(calculation(pengurangan, 2, 3, 5))
-
+	x := foo(5)
+	n, s := bar(15, "Hai")
+	fmt.Println(x)
+	fmt.Println(n)
+	fmt.Println(s)
 }
 
-type calc func(x ...int) int
-
-func penjumlahan(x ...int) int {
-	total := 0
-
-	for _, v := range x {
-		total += v
-	}
-
-	return total
+func foo(n int) int {
+	return n
 }
 
-func pengurangan(x ...int) int {
-	total := 0
-
-	for _, v := range x {
-		total -= v
-	}
-
-	return total
-}
-
-func calculation(f calc, x ...int) float64 {
-
-	return float64(f(x...))
-
-}
-
-func sum(x ...int) int {
-
-	total := 0
-
-	for _, v := range x {
-		total += v
-	}
-
-	return total
+func bar(n int, s string) (int, string) {
+	return n, s
 }
